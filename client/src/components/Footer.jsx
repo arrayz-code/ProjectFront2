@@ -1,0 +1,43 @@
+import { Footer, FooterBrand, FooterLinkGroup, FooterIcon, FooterCopyright } from "flowbite-react";
+import { BsDribbble, BsFacebook, BsGithub, BsInstagram, BsTwitter } from "react-icons/bs";
+
+function Component() {
+  return (
+    <div className="flex flex-col min-h-screen">
+      {/* Contenido de tu página */}
+      {/* Tu contenido aquí */}
+
+      {/* Footer fijo al final */}
+      <Footer container className="mt-auto">
+        <div className="w-full text-center">
+          <div className="w-full justify-between sm:flex sm:items-center sm:justify-between">
+            <FooterBrand
+              href="/"
+              src="./src/assets/icon.png"
+              alt="Logo"
+              name="ShopTecnology"
+              className="h-8 w-auto" // Agrega estas clases para hacer que la imagen sea más pequeña
+            />
+    
+            <FooterLinkGroup className="space-x-4">
+              <li><a className="text-gray-600 hover:text-gray-800 font-medium" href="/contact">Contactanos</a></li>
+            </FooterLinkGroup>
+          </div>
+
+
+
+          <div className="mt-4 flex space-x-6 sm:mt-0 sm:justify-center">
+            <FooterIcon href="#" icon={BsFacebook} />
+            <FooterIcon href="#" icon={BsInstagram} />
+            <FooterIcon href="#" icon={BsTwitter} />
+            <FooterIcon href="#" icon={BsGithub} />
+            <FooterIcon href="#" icon={BsDribbble} />
+          </div>
+        </div>
+
+      </Footer>
+    </div>
+  );
+}
+
+export default Component;

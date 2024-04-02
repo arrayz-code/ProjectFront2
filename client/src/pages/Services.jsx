@@ -1,12 +1,15 @@
 
 import React, { useState, useEffect } from 'react';
+import ProductList from '../components/ProductList';
 import axios from 'axios';
 
 
 
 const Services = () => {
     return(
-        <div>Servicios</div>
+        <div className='px-4 mb-10'>
+        <ProductList />
+      </div>
     )
  
 };

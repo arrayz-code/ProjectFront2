@@ -5,7 +5,7 @@ const Promotions = () => {
         <div>
          
             <div>
-              <h2>Bienvenido a la página de</h2>
+              <h2>Bienvenido a la página de prmo</h2>
      
             </div>
        

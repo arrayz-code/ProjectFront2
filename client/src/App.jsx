@@ -1,13 +1,14 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
+import Component from './components/Footer';
 import Home from './pages/Home';
 import Services from './pages/Services';
 import Promotions from './pages/Promotions';
 import Contact from './pages/Contact';
 import Blog from './pages/Blog';
 import Precios from './pages/Precios'
-import Reservas from './pages/Reservas'
+import Comprar from './pages/Comprar';
 import Login from './pages/Login';
 import Register from './pages/Register';
 import { AuthProvider } from './context/AuthContext';
@@ -32,15 +33,19 @@ const App = () => {
             <Route element={<ProtectedRoute/>}>
             <Route path="/promotions" element={<Promotions />} />
             <Route path="/precios" element={<Precios />} />
-            <Route path="/reservas" element={<Reservas />} />
+            <Route path="/comprar" element={<Comprar/>} />
             <Route path="/admin" element={<Admin />} />
+            
 
             </Route>
 
           </Routes>
+        
         </div>
       </Router>
+      <Component/>
     </AuthProvider>
+    
   );
 };
 
