@@ -1,43 +1,76 @@
-
-
-
-import React from "react"
+import React from "react";
 
 const ContactUs = () => { 
- 
-      return (
-        <div className="container mx-auto p-4">
-            <h1 className="text-2xl font-bold mb-4">Contacto</h1>
-            <div className="grid grid-cols-2 gap-4">
-                <div>
-                    <h2 className="text-lg font-semibold mb-2">Información de Contacto</h2>
-                    <p><strong>Teléfono:</strong> +1-234-567-890</p>
-                    <p><strong>Ubicación:</strong> Dirección de tu empresa</p>
-                    <p><strong>Correo Electrónico:</strong> info@tudominio.com</p>
-                </div>
-                <div>
-                    <h2 className="text-lg font-semibold mb-2">Redes Sociales</h2>
-                    <ul>
-                        <li><a href="#" className="text-blue-500 hover:underline">Facebook</a></li>
-                        <li><a href="#" className="text-blue-500 hover:underline">Twitter</a></li>
-                        <li><a href="#" className="text-blue-500 hover:underline">Instagram</a></li>
-                    </ul>
+    return (
+   
+        <div class="relative flex items-top justify-center  bg-white dark:bg-gray-900 sm:items-center sm:pt-0">
+                <div class="max-w-6xl mx-auto sm:px-6 lg:px-8">
+                    <div class="mt-8 overflow-hidden">
+                        <div class="grid grid-cols-1 md:grid-cols-2">
+                            <div class="p-6 mr-2 bg-gray-100 dark:bg-gray-800 sm:rounded-lg">
+                                <h1 class="text-4xl sm:text-5xl text-gray-800 dark:text-white font-extrabold tracking-tight">
+                                Ponerse en contacto
+                                </h1>
+                                <p class="text-normal text-lg sm:text-2xl font-medium text-gray-600 dark:text-gray-400 mt-2">
+                                Rellena el formulario para iniciar una conversación.
+                                </p>
+        
+                                <div class="flex items-center mt-8 text-gray-600 dark:text-gray-400">
+                                    <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" class="w-8 h-8 text-gray-500">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                                    </svg>
+                                    <div class="ml-4 text-md tracking-wide font-semibold w-40">
+                                        Global Network Connection, Valera, Trujillo,
+                                        3101
+                                    </div>
+                                </div>
+        
+                                <div class="flex items-center mt-4 text-gray-600 dark:text-gray-400">
+                                    <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" class="w-8 h-8 text-gray-500">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+                                    </svg>
+                                    <div class="ml-4 text-md tracking-wide font-semibold w-40">
+                                        +58 4147009384
+                                    </div>
+                                </div>
+        
+                                <div class="flex items-center mt-2 text-gray-600 dark:text-gray-400">
+                                    <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" class="w-8 h-8 text-gray-500">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                                    </svg>
+                                    <div class="ml-4 text-md tracking-wide font-semibold w-40">
+                                        arraizangel5@gmail.com
+                                    </div>
+                                </div>
+                            </div>
+        
+                            <form class="p-6 flex flex-col justify-center">
+    <div class="flex">
+        <label for="name" class="hidden">Full Name</label>
+        <input type="name" name="name" id="name" placeholder="Full Name" class="w-full mt-2 py-3 px-3 rounded-lg bg-white dark:bg-gray-800 border border-gray-400 dark:border-gray-700 text-gray-800 font-semibold focus:border-indigo-500 focus:outline-none"/>
+    </div>
+
+    <div class="flex flex-col mt-2">
+        <label for="email" class="hidden">Email</label>
+        <input type="email" name="email" id="email" placeholder="Email" class="w-full mt-2 py-3 px-3 rounded-lg bg-white dark:bg-gray-800 border border-gray-400 dark:border-gray-700 text-gray-800 font-semibold focus:border-indigo-500 focus:outline-none"/>
+    </div>
+
+    <div class="flex flex-col mt-2">
+        <label for="tel" class="hidden">Number</label>
+        <input type="tel" name="tel" id="tel" placeholder="Telephone Number" class="w-full mt-2 py-3 px-3 rounded-lg bg-white dark:bg-gray-800 border border-gray-400 dark:border-gray-700 text-gray-800 font-semibold focus:border-indigo-500 focus:outline-none"/>
+    </div>
+
+    <button type="submit" class="md:w-32 bg-black hover:bg-blue-dark text-white font-bold py-3 px-6 rounded-lg mt-3 hover:bg-indigo-500 transition ease-in-out duration-300">
+        Submit
+    </button>
+</form>
+
+                        </div>
+                    </div>
                 </div>
             </div>
-            <form className="mt-8">
-                <label className="block mb-2">Nombre:</label>
-                <input type="text" className="w-full border border-gray-300 rounded-md p-2 mb-4" />
+    );
+}
 
-                <label className="block mb-2">Correo Electrónico:</label>
-                <input type="email" className="w-full border border-gray-300 rounded-md p-2 mb-4" />
-
-                <label className="block mb-2">Mensaje:</label>
-                <textarea className="w-full border border-gray-300 rounded-md p-2 mb-4"></textarea>
-
-                <button className="bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600">Enviar Mensaje</button>
-            </form>
-        </div>
-  
-  );}
-
-export default ContactUs
+export default ContactUs;

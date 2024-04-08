@@ -1,17 +1,18 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { Link } from 'react-router-dom'; // Importa Link de React Router
 import { useAuth } from "../context/AuthContext";
 import ProductForm from './ProductForm';
 
-const ProductList = () => {
+const ProductList = ({ searchTerm, selectedCategory, fromHome }) => {
     const [products, setProducts] = useState([]);
-    const [editProductId, setEditProductId] = useState(null); // ID del producto en edición
-    const { isAuthenticated, userRole } = useAuth();
-    const [buyProductId, setBuyProductId] = useState(null); // ID del producto a comprar
-    const [paymentMethod, setPaymentMethod] = useState(''); // Método de pago seleccionado
-    const [units, setUnits] = useState(1); // Unidades del producto a comprar
-    
+    const [editProductId, setEditProductId] = useState(null);
+    const { userRole } = useAuth(); 
+    const [buyProductId, setBuyProductId] = useState(null);
+    const [paymentMethod, setPaymentMethod] = useState('');
+    const [units, setUnits] = useState(1);
+    const [userEmail, setUserEmail] = useState(localStorage.getItem('userEmail'));
+    const [productsUpdated, setProductsUpdated] = useState(false);
+
     useEffect(() => {
         const fetchProducts = async () => {
             try {
@@ -23,12 +24,13 @@ const ProductList = () => {
         };
 
         fetchProducts();
-    }, []);
+    }, [productsUpdated]);
 
     const handleDelete = async (productId) => {
         try {
             await axios.delete(`http://localhost:4000/api/products/${productId}`);
             setProducts(products.filter(product => product._id !== productId));
+            setProductsUpdated(true); // Forzar actualización después de eliminar
         } catch (error) {
             console.error('Error deleting product: ', error);
         }
@@ -47,46 +49,60 @@ const ProductList = () => {
     };
 
     const handleConfirmBuy = () => {
-        // Enviar correo electrónico al servidor
-        axios.post('http://localhost:4000/enviar-correo', {
-            productId: buyProductId,
+        const productToBuy = products.find(product => product._id === buyProductId);
+    
+        const compra = {
+            productName: productToBuy.name,
+            productImage: productToBuy.imgURL,
             paymentMethod: paymentMethod,
-            units: units
-        })
-        .then(response => {
-            console.log('Correo electrónico enviado correctamente');
-        })
-        .catch(error => {
-            console.error('Error al enviar el correo electrónico:', error);
-        });
+            units: units,
+            userEmail: userEmail 
+        };
 
-        // Reiniciar los estados después de la compra
+        axios.post('http://localhost:4000/enviar-correo', compra)
+            .then(response => {
+                console.log('Correo electrónico enviado correctamente');
+            })
+            .catch(error => {
+                console.error('Error al enviar el correo electrónico:', error);
+            });
+    
         setBuyProductId(null);
         setPaymentMethod('');
         setUnits(1);
     };
 
+    const filteredProducts = products.filter(product => {
+        if (selectedCategory && product.category !== selectedCategory) {
+            return false;
+        }
+        const term = searchTerm ? searchTerm.toUpperCase() : '';
+        return product.name.toUpperCase().includes(term);
+    });
+
+    const displayedProducts = fromHome ? products.slice(0, 3) : filteredProducts;
+
     return (
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4">
-            {products.map(product => (
-                <div key={product._id} className="bg-white shadow-md rounded-lg p-4">
+            {displayedProducts.map(product => (
+              <div key={product._id} className="bg-white shadow-md rounded-lg p-4 border border-black">
                     <img src={product.imgURL} alt={product.name} className="w-full h-auto max-h-40 object-contain mb-4" />
                     <p><strong>Nombre:</strong> {product.name}</p>
                     <p><strong>Categoría:</strong> {product.category}</p>
                     <p><strong>Precio:</strong> ${product.price}</p>
-                    {userRole === 'admin' && window.location.pathname.includes('/admin') && (
+                    {userRole === 'admin' && (
                         <div>
-                            <button onClick={() => handleDelete(product._id)} className="bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-2 rounded mt-2">
+                            <button onClick={() => handleDelete(product._id)} className="bg-black hover:bg-gray-400 text-white font-bold py-1 px-2 rounded mt-2">
                                 Eliminar
                             </button>
-                            <button onClick={() => handleEdit(product._id)} className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded ml-2 mt-2">
+                            <button onClick={() => handleEdit(product._id)} className="bg-blue-700 hover:bg-blue-500 text-white font-bold py-1 px-2 rounded ml-2 mt-2">
                                 Editar
                             </button>
                         </div>
                     )}
-                    {userRole !== 'admin' && (
+                    {!fromHome && userRole !== 'admin' && (
                         <div>
-                            <button onClick={() => handleBuy(product._id)} className="bg-green-500 hover:bg-green-700 text-white font-bold py-1 px-2 rounded mt-2">
+                            <button onClick={() => handleBuy(product._id)} className="bg-black hover:bg-gray-200 text-white font-bold py-1 px-2 rounded mt-2">
                                 Comprar
                             </button>
                             {buyProductId === product._id && (
@@ -96,7 +112,6 @@ const ProductList = () => {
                                         <option value="">Selecciona un método de pago</option>
                                         <option value="credit_card">Tarjeta de crédito</option>
                                         <option value="paypal">PayPal</option>
-                                        {/* Agrega más opciones de método de pago según sea necesario */}
                                     </select>
                                     <label htmlFor="units">Unidades:</label>
                                     <input type="number" id="units" value={units} onChange={(e) => setUnits(e.target.value)} className="block w-full border-gray-300 mt-1 p-2" />
@@ -121,5 +136,3 @@ const ProductList = () => {
 };
 
 export default ProductList;
-
-

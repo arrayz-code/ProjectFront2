@@ -3,12 +3,11 @@ import { BsDribbble, BsFacebook, BsGithub, BsInstagram, BsTwitter } from "react-
 
 function Component() {
   return (
-    <div className="flex flex-col min-h-screen">
-      {/* Contenido de tu página */}
-      {/* Tu contenido aquí */}
-
-      {/* Footer fijo al final */}
-      <Footer container className="mt-auto">
+    <div className="flex flex-col min-h-40 bg-gray-100">
+ 
+      {/* Contenido principal */}
+      
+      <Footer container className="fixed bottom-0 left-0 w-full bg-white border-t border-black">
         <div className="w-full text-center">
           <div className="w-full justify-between sm:flex sm:items-center sm:justify-between">
             <FooterBrand
@@ -24,8 +23,6 @@ function Component() {
             </FooterLinkGroup>
           </div>
 
-
-
           <div className="mt-4 flex space-x-6 sm:mt-0 sm:justify-center">
             <FooterIcon href="#" icon={BsFacebook} />
             <FooterIcon href="#" icon={BsInstagram} />
@@ -34,7 +31,6 @@ function Component() {
             <FooterIcon href="#" icon={BsDribbble} />
           </div>
         </div>
-
       </Footer>
     </div>
   );
