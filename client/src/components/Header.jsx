@@ -30,7 +30,7 @@ const Header = () => {
                 <>
                   <li><a className="text-gray-600 hover:text-gray-800 font-medium" href="/products">Productos</a></li>
 
-                  <li><a className="text-gray-600 hover:text-gray-800 font-medium" href="/promotions">Promociones</a></li>
+
                   <li><a className="text-gray-600 hover:text-gray-800 font-medium" href="/blog">Blog</a></li>
                   <li><button onClick={logout} className="text-white hover:text-black font-medium bg-black px-4 py-1 rounded-md">Logout</button></li>
 

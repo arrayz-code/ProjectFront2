@@ -3,9 +3,9 @@ import { BsDribbble, BsFacebook, BsGithub, BsInstagram, BsTwitter } from "react-
 
 function Component() {
   return (
-    <div className="flex flex-col min-h-40 bg-gray-100">
+    <div className="mt-40">
  
-      {/* Contenido principal */}
+
       
       <Footer container className="fixed bottom-0 left-0 w-full bg-white border-t border-black">
         <div className="w-full text-center">

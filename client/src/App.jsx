@@ -4,16 +4,13 @@ import Header from './components/Header';
 import Component from './components/Footer';
 import Home from './pages/Home';
 import Products from './pages/Products';
-import Promotions from './pages/Promotions';
 import Contact from './pages/Contact';
 import Blog from './pages/Blog';
-
-import Comprar from './pages/Comprar';
 import Login from './pages/Login';
 import Register from './pages/Register';
 import { AuthProvider } from './context/AuthContext';
 import ProtectedRoute from './ProtectedRoute';
-import Admin from "./pages/Admin";
+
 import WComponent  from "./components/WButton"
 
 const App = () => {
@@ -33,10 +30,7 @@ const App = () => {
 
             <Route element={<ProtectedRoute/>}>
             <Route path="/products" element={<Products />} />
-            <Route path="/promotions" element={<Promotions />} />
-
-            <Route path="/comprar" element={<Comprar/>} />
-            <Route path="/admin" element={<Admin />} />
+            
             
 
             </Route>
