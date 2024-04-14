@@ -20,7 +20,7 @@ function LoginPage() {
     return (
         <div className="bg-gray-100 flex justify-center items-center h-screen">
             <div className="w-1/2 h-screen hidden lg:block">
-                <img src="https://i.pinimg.com/originals/84/27/e1/8427e18498ea0906af1452d58458a580.jpg" alt="Placeholder Image" className="object-cover w-full h-full"/>
+                <img src="./src/assets/vision.jpg" alt="Placeholder Image" className="object-cover w-full h-full"/>
             </div>
             <div className="lg:p-36 md:p-52 sm:20 p-8 w-full lg:w-1/2">
                 <h1 className="text-2xl font-semibold mb-4">Login</h1>

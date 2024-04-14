@@ -39,7 +39,6 @@ const Header = () => {
                 <>
                   <li><a className="text-white hover:text-black px-4 py-1 hover:bg-white bg-black rounded-md" href="/register">Sign Up</a></li>
                   <li><a className="text-white hover:text-black px-4 py-1 hover:bg-white bg-black rounded-md" href="/login">Login</a></li>
-                  <li><a className="text-gray-600 hover:text-gray-800 font-medium" href="/products"></a></li>
                   <li><a className="text-gray-600 hover:text-gray-800 font-medium" href="/blog">Blog</a></li>
                 </>
               )}

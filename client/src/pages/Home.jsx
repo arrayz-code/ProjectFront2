@@ -21,7 +21,7 @@ const Home = () => {
   <div className="hidden lg:block lg:w-1/2" style={{ clipPath: 'polygon(10% 0, 100% 0%, 100% 100%, 0 100%)' }}>
   <div className="h-full">
     <img 
-      src="https://blog.es.playstation.com/tachyon/sites/14/2023/07/24bbaed190443ef0d278f3d5a0fe44af2279cd7b.png" 
+      src="./src/assets/spiderman.webp" 
       alt="Background" 
       className="h-full w-full object-cover"
     />

@@ -20,7 +20,7 @@ function RegisterPage() {
     return (
         <div className="bg-gray-100 flex justify-center items-center h-screen">
             <div className="w-1/2 h-screen hidden lg:block">
-                <img src="https://media.es.wired.com/photos/647f54f7e1c13787dd8e3361/2:3/w_1200,h_1800,c_limit/Apple-Vision-Pro-Hands-On-Gear-Featured-GettyImages-1496190487.jpg" alt="Placeholder Image" className="object-cover w-full h-full"/>
+                <img src="./src/assets/vision.webp" alt="Placeholder Image" className="object-cover w-full h-full"/>
             </div>
             <div className="lg:p-36 md:p-52 sm:20 p-8 w-full lg:w-1/2">
                 <h1 className="text-2xl font-semibold mb-4">Sign Up</h1>

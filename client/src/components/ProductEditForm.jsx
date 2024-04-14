@@ -5,6 +5,8 @@ const ProductEditForm = ({ product, onUpdate, onCancel }) => {
         name: product.name,
         category: product.category,
         price: product.price,
+        quantity: product.quantity, // Agregar el campo de cantidad
+        image: null // Estado para almacenar la imagen seleccionada
     });
 
     const handleChange = (e) => {
@@ -15,14 +17,25 @@ const ProductEditForm = ({ product, onUpdate, onCancel }) => {
         });
     };
 
+    const handleImageChange = (e) => {
+        const file = e.target.files[0];
+        setEditedProduct({
+            ...editedProduct,
+            image: file // Almacenar la imagen seleccionada en el estado
+        });
+    };
+
     const handleSubmit = (e) => {
         e.preventDefault();
-        onUpdate({
-            ...product,
-            name: editedProduct.name,
-            category: editedProduct.category,
-            price: editedProduct.price
-        });
+        const formData = new FormData();
+        formData.append('name', editedProduct.name);
+        formData.append('category', editedProduct.category);
+        formData.append('price', editedProduct.price);
+        formData.append('quantity', editedProduct.quantity); // Agregar la cantidad al formulario
+        if (editedProduct.image) {
+            formData.append('image', editedProduct.image); // Agregar la imagen al formulario si se seleccionó una nueva
+        }
+        onUpdate(product._id, formData);
     };
 
     return (
@@ -37,6 +50,12 @@ const ProductEditForm = ({ product, onUpdate, onCancel }) => {
 
                 <label htmlFor="price" className="block mb-2">Precio:</label>
                 <input type="number" id="price" name="price" value={editedProduct.price} onChange={handleChange} className="w-full p-2 mb-2 border" required />
+
+                <label htmlFor="quantity" className="block mb-2">Cantidad:</label>
+                <input type="number" id="quantity" name="quantity" value={editedProduct.quantity} onChange={handleChange} className="w-full p-2 mb-2 border" required />
+
+                <label htmlFor="image" className="block mb-2">Imagen:</label>
+                <input type="file" id="image" name="image" onChange={handleImageChange} className="w-full p-2 mb-2 border" />
 
                 <div className="flex justify-end">
                     <button type="submit" className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded mr-2">Guardar</button>
