@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
-const ProductForm = ({ initialProduct, onClose }) => {
+const ProductForm = ({ initialProduct, onClose, onUpdate }) => {
   const [formData, setFormData] = useState({
     name: initialProduct ? initialProduct.name : '',
     category: initialProduct ? initialProduct.category : '',
@@ -44,11 +44,11 @@ const ProductForm = ({ initialProduct, onClose }) => {
         await axios.post('http://localhost:4000/api/products', formDataToSend);
       }
       onClose();
+      onUpdate(); // Llama a la función proporcionada por el componente padre para actualizar la lista de productos
     } catch (error) {
       console.error('Error al guardar el producto:', error);
     }
   };
-
 
   useEffect(() => {
     setFormData({

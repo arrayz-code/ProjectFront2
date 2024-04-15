@@ -1,0 +1,54 @@
+components:
+  schemas:
+    RegisterRequest:
+      type: object
+      properties:
+        username:
+          type: string
+          description: Nombre de usuario del nuevo usuario
+        email:
+          type: string
+          format: email
+          description: Correo electrónico del nuevo usuario
+        password:
+          type: string
+          minLength: 6
+          description: Contraseña del nuevo usuario (mínimo 6 caracteres)
+
+    LoginRequest:
+      type: object
+      properties:
+        email:
+          type: string
+          format: email
+          description: Correo electrónico del usuario
+        password:
+          type: string
+          minLength: 6
+          description: Contraseña del usuario
+
+paths:
+  /register:
+    post:
+      summary: Registro de nuevo usuario
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RegisterRequest'
+      responses:
+        '200':
+          description: Usuario registrado con éxito
+  /login:
+    post:
+      summary: Inicio de sesión de usuario
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LoginRequest'
+      responses:
+        '200':
+          description: Usuario inició sesión con éxito

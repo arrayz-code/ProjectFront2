@@ -43,8 +43,8 @@ Este proyecto es una tienda de productos en línea que permite a los usuarios na
 
 ## Autor
 
-Este proyecto fue desarrollado por [Tu Nombre].
+Este proyecto fue desarrollado por [Angel Arraiz](https://github.com/arrayz-code).
 
 ## Licencia
 
-Este proyecto está bajo la Licencia [tipo de licencia]. Consulta el archivo LICENSE.md para obtener más detalles.
+Este proyecto está bajoLicencia. Consulta el archivo LICENSE.md para obtener más detalles.

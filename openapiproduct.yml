@@ -1,0 +1,88 @@
+
+
+openapi: 3.0.0
+info:
+  title: API de Productos
+  description: Documentación de la API de Productos
+  version: 1.0.0
+servers:
+  - url: http://localhost:4000/api
+paths:
+  /products:
+    get:
+      summary: Obtener todos los productos
+      responses:
+        '200':
+          description: Lista de productos obtenida con éxito
+    post:
+      summary: Crear un nuevo producto
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                description:
+                  type: string
+                price:
+                  type: number
+                image:
+                  type: string
+      responses:
+        '201':
+          description: Producto creado con éxito
+    servers:
+      - url: http://localhost:4000/api
+  /products/{productId}:
+    get:
+      summary: Obtener un producto por su ID
+      parameters:
+        - in: path
+          name: productId
+          required: true
+          description: ID del producto a obtener
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Producto obtenido con éxito
+    put:
+      summary: Actualizar un producto por su ID
+      parameters:
+        - in: path
+          name: productId
+          required: true
+          description: ID del producto a actualizar
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                description:
+                  type: string
+                price:
+                  type: number
+      responses:
+        '200':
+          description: Producto actualizado con éxito
+    delete:
+      summary: Eliminar un producto por su ID
+      parameters:
+        - in: path
+          name: productId
+          required: true
+          description: ID del producto a eliminar
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Producto eliminado con éxito

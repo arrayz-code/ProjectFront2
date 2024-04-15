@@ -67,30 +67,29 @@ const Products = () => {
         </div>
       )}
 
-<div className="bg-gray-100 flex justify-center items-center mb-4 mt-0">
-  <div className="w-1/3 mr-4"> {/* Aquí ajusta el ancho del campo de búsqueda */}
-    <input 
-      type="text" 
-      placeholder="Buscar productos..." 
-      value={searchTerm}
-      onChange={(e) => setSearchTerm(e.target.value.toUpperCase())}
-      className="w-full p-2 border rounded" 
-    />
-  </div>
-  <div>
-    <select 
-      value={selectedCategory} 
-      onChange={(e) => setSelectedCategory(e.target.value)} 
-      className="p-2 border rounded"
-    >
-      <option value="">Todas las categorías</option>
-      {categories.map(category => (
-        <option key={category} value={category}>{category}</option>
-      ))}
-    </select>
-  </div>
-</div>
-
+      <div className="bg-gray-100 flex justify-center items-center mb-4 mt-0">
+        <div className="w-1/3 mr-4"> {/* Aquí ajusta el ancho del campo de búsqueda */}
+          <input 
+            type="text" 
+            placeholder="Buscar productos..." 
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value.toUpperCase())}
+            className="w-full p-2 border rounded" 
+          />
+        </div>
+        <div>
+          <select 
+            value={selectedCategory} 
+            onChange={(e) => setSelectedCategory(e.target.value)} 
+            className="p-2 border rounded"
+          >
+            <option value="">Todas las categorías</option>
+            {categories.map(category => (
+              <option key={category} value={category}>{category}</option>
+            ))}
+          </select>
+        </div>
+      </div>
 
       <ProductList 
         searchTerm={searchTerm} 

@@ -11,7 +11,7 @@ const Blog = () => {
 
         <div class="grid grid-cols-1 gap-8 mt-8 md:mt-16 md:grid-cols-2">
             <div class="lg:flex">
-                <img class="object-cover w-full h-56 rounded-lg lg:w-64" src="" alt=""/>
+                <img class="object-cover w-full h-56 rounded-lg lg:w-64" src="../src/assets/movil.jpg" alt=""/>
 
                 <div class="flex flex-col justify-between py-6 lg:mx-6">
                     <a href="#" class="text-xl font-semibold text-gray-800 hover:underline dark:text-white ">
@@ -23,7 +23,7 @@ const Blog = () => {
             </div>
 
             <div class="lg:flex">
-                <img class="object-cover w-full h-56 rounded-lg lg:w-64" src="" alt=""/>
+                <img class="object-cover w-full h-56 rounded-lg lg:w-64" src="../src/assets/ia.jpg" alt=""/>
 
                 <div class="flex flex-col justify-between py-6 lg:mx-6">
                     <a href="#" class="text-xl font-semibold text-gray-800 hover:underline dark:text-white ">
@@ -35,7 +35,7 @@ const Blog = () => {
             </div>
 
             <div class="lg:flex">
-                <img class="object-cover w-full h-56 rounded-lg lg:w-64" src="" alt=""/>
+                <img class="object-cover w-full h-56 rounded-lg lg:w-64" src="../src/assets/market.webp" alt=""/>
 
                 <div class="flex flex-col justify-between py-6 lg:mx-6">
                     <a href="#" class="text-xl font-semibold text-gray-800 hover:underline dark:text-white ">
@@ -47,7 +47,7 @@ const Blog = () => {
             </div>
 
             <div class="lg:flex">
-                <img class="object-cover w-full h-56 rounded-lg lg:w-64" src="" alt=""/>
+                <img class="object-cover w-full h-56 rounded-lg lg:w-64" src="../src/assets/machine.png" alt=""/>
 
                 <div class="flex flex-col justify-between py-6 lg:mx-6">
                     <a href="#" class="text-xl font-semibold text-gray-800 hover:underline dark:text-white ">
@@ -59,7 +59,7 @@ const Blog = () => {
             </div>
 
             <div class="lg:flex">
-                <img class="object-cover w-full h-56 rounded-lg lg:w-64" src="" alt=""/>
+                <img class="object-cover w-full h-56 rounded-lg lg:w-64" src="../src/assets/rv.jpg" alt=""/>
 
                 <div class="flex flex-col justify-between py-6 lg:mx-6">
                     <a href="#" class="text-xl font-semibold text-gray-800 hover:underline dark:text-white ">
@@ -71,7 +71,7 @@ const Blog = () => {
             </div>
 
             <div class="lg:flex">
-                <img class="object-cover w-full h-56 rounded-lg lg:w-64" src="" alt=""/>
+                <img class="object-cover w-full h-56 rounded-lg lg:w-64" src="../src/assets/apps.png" alt=""/>
 
                 <div class="flex flex-col justify-between py-6 lg:mx-6">
                     <a href="#" class="text-xl font-semibold text-gray-800 hover:underline dark:text-white ">

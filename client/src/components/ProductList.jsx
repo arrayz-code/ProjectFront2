@@ -14,7 +14,6 @@ const ProductList = ({ searchTerm, selectedCategory, fromHome }) => {
     const [productsUpdated, setProductsUpdated] = useState(false);
     const [message, setMessage] = useState('');
 
-
     useEffect(() => {
         const fetchProducts = async () => {
             try {
@@ -32,7 +31,7 @@ const ProductList = ({ searchTerm, selectedCategory, fromHome }) => {
         try {
             await axios.delete(`http://localhost:4000/api/products/${productId}`);
             setProducts(products.filter(product => product._id !== productId));
-            setProductsUpdated(true); // Forzar actualización después de eliminar
+            setProductsUpdated(true); // Actualizar la lista después de eliminar
         } catch (error) {
             console.error('Error deleting product: ', error);
         }
@@ -74,18 +73,17 @@ const ProductList = ({ searchTerm, selectedCategory, fromHome }) => {
             const updatedQuantity = productToBuy.quantity - units;
             await axios.put(`http://localhost:4000/api/products/${buyProductId}`, { quantity: updatedQuantity });
             // Mostrar mensaje de compra exitosa
-            showMessage('Compra realizada exitosamente.');
+            alert('Compra realizada exitosamente.');
+            setProductsUpdated(true); // Actualizar la lista después de la compra
         } catch (error) {
             console.error('Error al realizar la compra:', error);
-            showMessage('Error al realizar la compra. Por favor, inténtalo de nuevo más tarde.');
+            alert('Error al realizar la compra. Por favor, inténtalo de nuevo más tarde.');
         }
     
         setBuyProductId(null);
         setPaymentMethod('');
         setUnits(1);
     };
-
-
 
     const filteredProducts = products.filter(product => {
         if (selectedCategory && product.category !== selectedCategory) {
@@ -108,8 +106,8 @@ const ProductList = ({ searchTerm, selectedCategory, fromHome }) => {
                     <p><strong>Categoría:</strong> {product.category}</p>
                     <p><strong>Precio:</strong> ${product.price}</p>
                     {!fromHome && (
-    <p><strong>Disponibles:</strong> {product.quantity}</p>
-)}
+                        <p><strong>Disponibles:</strong> {product.quantity}</p>
+                    )}
 
                     {userRole === 'admin' && (
                         <div>
